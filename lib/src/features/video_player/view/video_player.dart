@@ -19,18 +19,22 @@ class _VideoAppState extends State<VideoApp> {
   @override
 
   void initState() {
+    _initVideo();
+    super.initState();
+  }
+
+  void _initVideo (){
     videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(videoUrl))
       ..initialize().then((value) => setState(() {}));
     _customVideoPlayerController = CustomVideoPlayerController(
-      context: context,
-      videoPlayerController: videoPlayerController,
-      customVideoPlayerSettings: const CustomVideoPlayerSettings(
-        placeholderWidget: Center(child: CircularProgressIndicator()),
-        alwaysShowThumbnailOnVideoPaused: true,
-       showPlayButton: true,
-      )
+        context: context,
+        videoPlayerController: videoPlayerController,
+        customVideoPlayerSettings: const CustomVideoPlayerSettings(
+          placeholderWidget: Center(child: CircularProgressIndicator()),
+          alwaysShowThumbnailOnVideoPaused: true,
+          showPlayButton: true,
+        )
     );
-    super.initState();
   }
 
   @override
