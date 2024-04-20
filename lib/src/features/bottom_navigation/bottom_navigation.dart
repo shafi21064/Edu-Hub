@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:torganic/src/features/cart/view/cart.dart';
 import 'package:torganic/src/features/graph_chart/view/graph_screen.dart';
-import 'package:torganic/src/features/home/views/home_three.dart';
 import 'package:torganic/src/utils/constants/colors.dart';
 import 'package:torganic/src/utils/helpers/helper_functions.dart';
+import '../home/views/home.dart';
 
-import '../personalization/view/profile.dart';
 
 
 PersistentTabController _controller = PersistentTabController(initialIndex: 0);
@@ -43,14 +43,14 @@ class BottomNavigation extends StatelessWidget {
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
       ),
-      navBarStyle: NavBarStyle.style1, // Choose the nav bar style with this property.
+      navBarStyle: NavBarStyle.style15, // Choose the nav bar style with this property.
     );
   }
 }
 
 List<Widget> _buildScreens() {
   return [
-    const HomeThree(),
+    const HomeScreen(),
     const Cart(),
     const GraphScreen(),
     //const Profile()
@@ -66,10 +66,12 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
       inactiveColorPrimary: CupertinoColors.systemGrey,
     ),
     PersistentBottomNavBarItem(
-      icon: const Icon(CupertinoIcons.bag),
+      icon: const Icon(CupertinoIcons.bag, color: Colors.white,),
+
       title: ("Cart"),
-      activeColorPrimary: CupertinoColors.activeBlue,
+      activeColorPrimary: CupertinoColors.destructiveRed,
       inactiveColorPrimary: CupertinoColors.systemGrey,
+      opacity: 1
     ),
     PersistentBottomNavBarItem(
       icon: const Icon(CupertinoIcons.graph_square),

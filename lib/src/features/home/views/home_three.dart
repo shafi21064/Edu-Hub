@@ -3,15 +3,11 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:torganic/src/common/layouts/layout_with_drawer/layout_with_drawer.dart';
 import 'package:torganic/src/common/styles/skeleton_style.dart';
-import 'package:torganic/src/common/widgets/buttons/app_buttons.dart';
 import 'package:torganic/src/common/widgets/search_bar/search_bar.dart';
 import 'package:torganic/src/common/widgets/slider/view/app_slider.dart';
 import 'package:torganic/src/features/home/controller/home_controller.dart';
-import 'package:torganic/src/features/home/views/home_two.dart';
 import 'package:torganic/src/utils/constants/sizes.dart';
 import 'package:torganic/src/utils/helpers/helper_functions.dart';
-
-import '../../../common/widgets/images/banner_image.dart';
 import '../../../utils/constants/image_strings.dart';
 
 class HomeThree extends StatelessWidget {

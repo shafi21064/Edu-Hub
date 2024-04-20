@@ -15,10 +15,11 @@ class SliverAppBarTest extends StatelessWidget {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
-        appBar: const CustomAppBar(
-          showBackArrow: true,
-        ),
+        // appBar: const CustomAppBar(
+        //   showBackArrow: true,
+        // ),
         body: NestedScrollView(
+          floatHeaderSlivers: true,
           headerSliverBuilder: (_, innerBoxIsScrolled) {
             return [
               SliverAppBar(
@@ -30,6 +31,7 @@ class SliverAppBarTest extends StatelessWidget {
                 flexibleSpace: Padding(
                   padding: AppSpacingStyle.defaultSpacing,
                   child: ListView(
+                    physics: const NeverScrollableScrollPhysics(),
                     children: const [
                       Gap(AppSizes.spaceBtwSections),
                       AppSearchBar()

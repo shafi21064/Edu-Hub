@@ -1,5 +1,5 @@
 {
-  "helloWorld" : "Hello World",
+  "hello": "Hello",
   "hi" : "Hi",
   "emailOrPhoneHintText" : "Enter your email or Phone",
   "dontHaveAccount" : "Don't have an account?",
