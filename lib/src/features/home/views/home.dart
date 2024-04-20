@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
-import 'package:torganic/src/common/widgets/images/banner_image.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../../common/styles/spacing_style.dart';
-import '../../../common/widgets/search_bar/search_bar.dart';
+import '../../../common/widgets/containers/banner_image.dartgit ';
 import '../../../utils/constants/sizes.dart';
 
 
