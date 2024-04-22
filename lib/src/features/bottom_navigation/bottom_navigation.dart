@@ -79,7 +79,7 @@ List<PersistentBottomNavBarItem> _navBarsItems() {
       opacity: 1
     ),
     PersistentBottomNavBarItem(
-      icon: const Icon(CupertinoIcons.doc_plaintext),
+      icon: const Icon(CupertinoIcons.doc_plaintext, color: CupertinoColors.extraLightBackgroundGray,),
       title: ("All Course"),
       activeColorPrimary: CupertinoColors.activeBlue,
       inactiveColorPrimary: CupertinoColors.systemGrey,

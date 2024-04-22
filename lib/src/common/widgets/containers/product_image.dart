@@ -1,14 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 import 'package:torganic/src/common/widgets/containers/card_container.dart';
-import 'package:torganic/src/utils/helpers/helper_functions.dart';
 import '../../../utils/constants/colors.dart';
+import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
-import '../../styles/spacing_style.dart';
+import '../../../utils/helpers/helper_functions.dart';
+import '../buttons/app_buttons.dart';
+import 'banner_image.dart';
 
-class AppProductImage extends StatelessWidget {
-  const AppProductImage({
+class AppProductImageContainer extends StatelessWidget {
+  const AppProductImageContainer({
     this.height,
     this.width,
     this.border,
@@ -33,122 +34,28 @@ class AppProductImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    final isDark = AppHelperFunctions.isDarkMode(context);
+    return InkWell(
       onTap: onPress,
-      child: Column(
+      child: Stack(
         children: [
-          Container(
-            height: height,
-            width: AppHelperFunctions.screenWidth() / 2,
-            decoration: BoxDecoration(
-                color: backgroundColor,
-                borderRadius: BorderRadius.circular(boarderRadius)),
-            child: Column(
-              children: [
-                Stack(
-                  children: [
-                    Positioned(
-                      right: 0,
-                      child: Container(
-                        margin: const EdgeInsets.all(AppSizes.sm),
-                        height: 30,
-                        width: 30,
-                        alignment: Alignment.center,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: AppColors.white,
-                        ),
-                        child: const Icon(
-                          CupertinoIcons.bookmark,
-                          size: 18,
-                        ),
-                      ),
-                    ),
-                    Center(
-                      child: ClipRRect(
-                          borderRadius: applyImageRadius
-                              ? BorderRadius.circular(boarderRadius)
-                              : BorderRadius.zero,
-                          child: Image(
-                        image: isNetworkImage
-                            ? NetworkImage(imgUrl)
-                            : AssetImage(imgUrl) as ImageProvider,
-                        fit: fit,
-                      )),
-                    ),
-                  ],
-                ),
-
-                AppCardContainer(
-                  padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  backgroundColor: AppColors.white,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          AppCardContainer(
-                            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 2),
-                            backgroundColor: AppColors.darkerGrey,
-                              child: Text('Web Development',
-                                  style:
-                                      Theme.of(context).textTheme.labelSmall!.apply(color: AppColors.light)),
-                          ),
-                           const Gap(AppSizes.spaceBtwItems),
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Text('4.9', style: Theme.of(context).textTheme.labelSmall,),
-                                const Icon(CupertinoIcons.star_fill, color: Colors.yellow, size: 10,),
-                                Text('500', style: Theme.of(context).textTheme.bodySmall)
-                              ],
-                            ),
-                          )
-                        ],
-                      ),
-                      const Gap(AppSizes.spaceBtwItems),
-                      Text('The Ultimate Guide to Learning Full Stack', style: Theme.of(context).textTheme.titleMedium,),
-                      const Gap(AppSizes.spaceBtwItems),
-
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          SizedBox(
-                            child: Row(
-                              children: [
-                                Container(
-                                  height: 35,
-                                  width: 35,
-                                  decoration: const BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    image: DecorationImage(image: AssetImage('assets/images/user/user_pic.png')),
-                                  )
-                                ),
-                                const Gap(AppSizes.spaceBtwRowItem),
-                                Text('John Doe', style: Theme.of(context).textTheme.labelLarge,),
-
-                              ],
-                            ),
-                          ),
-                          RichText(text: TextSpan(
-                            text: '\$500',
-                            style: Theme.of(context).textTheme.labelSmall!.apply(decoration: TextDecoration.lineThrough),
-                            children: [
-                              TextSpan(
-                                text: ' \$100',
-                                style: Theme.of(context).textTheme.bodyLarge
-                              )
-                            ]
-                          ))
-                        ],
-                      )
-
-                    ],
-                  ),
-                ),
-              ],
-            ),
+          AppBannerImage(
+              onPress: onPress,
+              height: height,
+              width: width,
+              applyImageRadius: applyImageRadius,
+              isNetworkImage: isNetworkImage,
+              boarderRadius: boarderRadius,
+              fit: fit,
+              imgUrl: AppImages.banner3),
+          Positioned(
+            right: 10,
+            top: 10,
+            child: AppButtons.iconRoundButton(
+                onPressed: () {},
+                buttonColor: isDark? AppColors.black: AppColors.white,
+                icon: CupertinoIcons.bookmark,
+                iconSize: 14),
           ),
         ],
       ),

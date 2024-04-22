@@ -3,14 +3,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
-import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:torganic/src/app.dart';
 import 'package:torganic/src/utils/firebase/push_notification.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'firebase_options.dart';
-import 'src/features/authentication/data/repositories/auth_repositories.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 
