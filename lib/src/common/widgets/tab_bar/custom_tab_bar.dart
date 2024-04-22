@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:torganic/src/utils/constants/colors.dart';
 import 'package:torganic/src/utils/device/device_utility.dart';
@@ -15,8 +16,13 @@ class AppTabBar extends StatelessWidget implements PreferredSizeWidget {
       color: isDark? AppColors.black : AppColors.white,
       child: TabBar(
           isScrollable: true,
+          indicator: const BoxDecoration(),
+          dividerHeight: 0,
+          padding: EdgeInsets.zero,
+          //dragStartBehavior: DragStartBehavior.down,
+
           indicatorColor: AppColors.primary,
-          unselectedLabelColor: AppColors.grey,
+          unselectedLabelColor: AppColors.dark,
           labelColor: AppColors.primary,
           tabs: tabs
       ),

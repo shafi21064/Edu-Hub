@@ -12,11 +12,11 @@ class AppButtons {
   static ElevatedButton smallRoundButton(
       {required VoidCallback onPressed,
       required Color buttonColor,
-      required Widget buttonChild}) {
+      required Widget buttonChild, maximumSize = 10.0}) {
     return ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-            shape: const CircleBorder(), backgroundColor: buttonColor),
+            shape: const CircleBorder(), backgroundColor: buttonColor, ),
         child: buttonChild);
   }
 

@@ -2,10 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:torganic/src/features/cart/view/cart.dart';
+import 'package:torganic/src/features/chat/view/chat.dart';
+import 'package:torganic/src/features/classes/view/my_classes.dart';
 import 'package:torganic/src/features/graph_chart/view/graph_screen.dart';
+import 'package:torganic/src/features/home/views/home_three.dart';
 import 'package:torganic/src/utils/constants/colors.dart';
 import 'package:torganic/src/utils/helpers/helper_functions.dart';
+import '../courses/view/all_courses.dart';
 import '../home/views/home.dart';
+import '../personalization/view/profile.dart';
 
 
 
@@ -50,40 +55,46 @@ class BottomNavigation extends StatelessWidget {
 
 List<Widget> _buildScreens() {
   return [
-    const HomeScreen(),
-    const Cart(),
-    const GraphScreen(),
-    //const Profile()
+    const HomeScreenThree(),
+    const MyClasses(),
+    const AllCourses(),
+    const ChatScreen(),
+    const Profile()
   ];
 }
 
 List<PersistentBottomNavBarItem> _navBarsItems() {
   return [
     PersistentBottomNavBarItem(
-      icon: const Icon(CupertinoIcons.home),
+      icon: const Icon(CupertinoIcons.house_alt),
       title: ("Home"),
       activeColorPrimary: CupertinoColors.activeBlue,
       inactiveColorPrimary: CupertinoColors.systemGrey,
     ),
     PersistentBottomNavBarItem(
-      icon: const Icon(CupertinoIcons.bag, color: Colors.white,),
-
-      title: ("Cart"),
-      activeColorPrimary: CupertinoColors.destructiveRed,
+      icon: const Icon(CupertinoIcons.bookmark),
+      title: ("My Class"),
+      activeColorPrimary: CupertinoColors.activeBlue,
       inactiveColorPrimary: CupertinoColors.systemGrey,
       opacity: 1
     ),
     PersistentBottomNavBarItem(
-      icon: const Icon(CupertinoIcons.graph_square),
-      title: ("Graph"),
+      icon: const Icon(CupertinoIcons.doc_plaintext),
+      title: ("All Course"),
       activeColorPrimary: CupertinoColors.activeBlue,
       inactiveColorPrimary: CupertinoColors.systemGrey,
     ),
-    // PersistentBottomNavBarItem(
-    //   icon: const Icon(CupertinoIcons.profile_circled),
-    //   title: ("Profile"),
-    //   activeColorPrimary: CupertinoColors.activeBlue,
-    //   inactiveColorPrimary: CupertinoColors.systemGrey,
-    // ),
+    PersistentBottomNavBarItem(
+      icon: const Icon(CupertinoIcons.chat_bubble),
+      title: ("Chat"),
+      activeColorPrimary: CupertinoColors.activeBlue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
+    ),
+    PersistentBottomNavBarItem(
+      icon: const Icon(CupertinoIcons.profile_circled),
+      title: ("Profile"),
+      activeColorPrimary: CupertinoColors.activeBlue,
+      inactiveColorPrimary: CupertinoColors.systemGrey,
+    ),
   ];
 }
