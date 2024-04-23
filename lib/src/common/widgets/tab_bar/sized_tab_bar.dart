@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:torganic/src/common/widgets/tab_bar/tab_controller.dart';
 
+import '../../../utils/constants/colors.dart';
+
 
 class TabBarViewInfo extends StatelessWidget {
   const TabBarViewInfo({super.key, required this.tabs, required this.tabsView});
@@ -15,8 +17,15 @@ class TabBarViewInfo extends StatelessWidget {
     return Column(
       children: [
         TabBar(
-            unselectedLabelColor: const Color(0xff7B7B7B),
-            controller: tabController.controller,
+          controller: tabController.controller,
+            isScrollable: true,
+            indicator: const BoxDecoration(),
+            dividerHeight: 0,
+            padding: EdgeInsets.zero,
+            //dragStartBehavior: DragStartBehavior.down,
+            indicatorColor: AppColors.primary,
+            unselectedLabelColor: AppColors.dark,
+            labelColor: AppColors.primary,
             tabs: tabs),
         SizedBox(
           height: 300,

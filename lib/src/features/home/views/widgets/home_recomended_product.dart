@@ -21,7 +21,6 @@ class HomeRecommendedProduct extends StatelessWidget {
         const AppSectionTitleText(
           haveTxtButton: false,
             sectionTitle: 'Recommended For You'),
-        const Gap(AppSizes.spaceBtwItems),
         Container(
           height: 265,
           decoration: const BoxDecoration(),

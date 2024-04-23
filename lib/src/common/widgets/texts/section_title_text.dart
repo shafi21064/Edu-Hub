@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:torganic/src/utils/constants/colors.dart';
+import 'package:torganic/src/utils/constants/sizes.dart';
 
 class AppSectionTitleText extends StatelessWidget {
   const AppSectionTitleText(
@@ -13,18 +16,28 @@ class AppSectionTitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return Column(
       children: [
-        Text(
-          sectionTitle,
-          style: Theme.of(context).textTheme.titleLarge,
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              sectionTitle,
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
+            Visibility(
+              visible: haveTxtButton,
+              child: InkWell(
+                  onTap: onTapSeeAll,
+                  child: Text('see all',
+                      style: Theme.of(context)
+                          .textTheme
+                          .titleSmall!
+                          .apply(color: AppColors.primary))),
+            )
+          ],
         ),
-        Visibility(
-          visible: haveTxtButton,
-          child:
-              TextButton(onPressed: onTapSeeAll, child: const Text('see all')),
-        )
+        const Gap(AppSizes.spaceBtwItems)
       ],
     );
   }
