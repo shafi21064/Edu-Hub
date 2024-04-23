@@ -4,12 +4,16 @@ import '../../../utils/constants/sizes.dart';
 import 'card_container.dart';
 
 class AppCourseTitleContainer extends StatelessWidget {
-  const AppCourseTitleContainer({super.key});
+  const AppCourseTitleContainer({this.height, this.width,super.key});
+
+  final double? height, width;
 
   @override
   Widget build(BuildContext context) {
     return   Flexible(
       child: AppCardContainer(
+        height: height,
+          width: width,
           padding: const EdgeInsets.fromLTRB(10, 10, 8, 0),
           //backgroundColor: Colors.red,
           child: Column(

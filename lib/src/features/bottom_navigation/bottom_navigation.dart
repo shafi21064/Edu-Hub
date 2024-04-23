@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:torganic/src/features/bottom_navigation/controller/buttom_navigation_controller.dart';
 import 'package:torganic/src/features/cart/view/cart.dart';
 import 'package:torganic/src/features/chat/view/chat.dart';
 import 'package:torganic/src/features/classes/view/my_classes.dart';
@@ -14,17 +16,19 @@ import '../personalization/view/profile.dart';
 
 
 
-PersistentTabController _controller = PersistentTabController(initialIndex: 0);
+//PersistentTabController _controller = PersistentTabController(initialIndex: 0);
+
 
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final bottomNavController = Get.put(BottomNavigationController());
     final isDark = AppHelperFunctions.isDarkMode(context);
     return PersistentTabView(
       context,
-      controller: _controller,
+      controller:bottomNavController.controller,
       screens: _buildScreens(),
       items: _navBarsItems(),
       confineInSafeArea: true,

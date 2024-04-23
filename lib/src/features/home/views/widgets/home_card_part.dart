@@ -16,11 +16,10 @@ class HomeCardPart extends StatelessWidget {
     final isDark = AppHelperFunctions.isDarkMode(context);
     return AppCardContainer(
         padding: AppSpacingStyle.allSIdeSpacing,
-        backgroundColor: AppColors.primary,
-        borderColor: isDark ? AppColors.dark : AppColors.light,
+        borderColor: isDark ? AppColors.dark : AppColors.dark,
         borderWidth: 0,
         gradient: LinearGradient(
-            colors: [AppColors.primary, AppColors.primary.withOpacity(.8)]),
+            colors: [AppColors.secondary, AppColors.secondary.withOpacity(.8)]),
         child: Stack(
           children: [
             Column(
@@ -30,14 +29,13 @@ class HomeCardPart extends StatelessWidget {
                   children: [
                     const Icon(
                       Icons.calendar_today_rounded,
-                      color: AppColors.light,
+                      color: AppColors.textWhite,
                     ),
                     const Gap(AppSizes.spaceBtwRowItem),
                     Text(DateFormat.yMMMd().format(DateTime.now()),
                         style: Theme.of(context)
                             .textTheme
-                            .bodyLarge!
-                            .apply(color: AppColors.light))
+                            .bodyLarge!.apply(color: AppColors.textWhite))
                   ],
                 ),
                 const Gap(AppSizes.spaceBtwItems),
@@ -46,7 +44,7 @@ class HomeCardPart extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall!
-                      .apply(color: AppColors.light),
+                      .apply(color: AppColors.textWhite),
                 ),
                 const Gap(AppSizes.spaceBtwRowItem),
                 Row(
@@ -57,14 +55,14 @@ class HomeCardPart extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .titleLarge!
-                          .apply(color: AppColors.light),
+                          .apply(color: AppColors.textWhite),
                     ),
                     Text(
                       '500/1000',
                       style: Theme.of(context)
                           .textTheme
                           .bodyMedium!
-                          .apply(color: AppColors.light),
+                          .apply(color: AppColors.textWhite),
                     )
                   ],
                 ),
@@ -74,8 +72,8 @@ class HomeCardPart extends StatelessWidget {
                     padding: const EdgeInsets.all(0),
                     percent: 0.5,
                     animation: true,
-                    backgroundColor: AppColors.grey.withOpacity(.5),
-                    progressColor: AppColors.white,
+                    backgroundColor: AppColors.primary.withOpacity(.3),
+                    progressColor: AppColors.primary,
                     animationDuration: 5,
                     barRadius: const Radius.circular(AppSizes.md)),
               ],
@@ -85,7 +83,7 @@ class HomeCardPart extends StatelessWidget {
                 child: AppCardContainer(
                   padding:
                       const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-                  backgroundColor: isDark ? AppColors.dark : AppColors.light,
+                  backgroundColor: AppColors.dark,
                   borderColor: isDark ? AppColors.dark : AppColors.light,
                   borderWidth: 0,
                   child: Text(

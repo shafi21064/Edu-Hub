@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:torganic/src/common/layouts/gridview_layout/gridview_layout.dart';
 import 'package:torganic/src/common/widgets/containers/course_title_container.dart';
+import 'package:torganic/src/common/widgets/containers/grid_course_card.dart';
+import 'package:torganic/src/common/widgets/tab_bar/sized_tab_bar.dart';
 import '../../../common/layouts/layout_with_back_button/layout_with_back_button.dart';
 import '../../../common/layouts/listview_layout/listview_layout.dart';
 import '../../../common/widgets/containers/card_container.dart';
@@ -17,27 +20,19 @@ class MyClasses extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = AppHelperFunctions.isDarkMode(context);
-    return AppLayoutWithBackButton(
+    return  AppLayoutWithBackButton(
       centerTitle: true,
-      title: const Text('My Classes'),
-      body: AppGridViewLayout(
-        //isScrollVertically: false,
-        itemCount: 10,
-        child: AppCardContainer(
-         //width: 200,
-          backgroundColor: isDark? AppColors.dark : AppColors.light,
-          child: const Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              AppProductImageContainer(
-                 // fit: BoxFit.fill,
-                  imgUrl: AppImages.banner2),
-              //const Gap(AppSizes.spaceBtwRowItem),
-             AppCourseTitleContainer()
-            ],
-          ),
-        ),
-      ),
+      title: Text('My Classes'),
+      body: ListView(
+        children: [
+          AppGridCourseCard(),
+          Gap(AppSizes.spaceBtwItems),
+          // SizedBox(
+          //   height: 500,
+          //   child: TabBarViewInfo(),
+          // )
+        ],
+      )
     );
   }
 }

@@ -1,18 +1,16 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-class MyTabController extends GetxController with GetSingleTickerProviderStateMixin {
-  final List<Tab> myTabs = <Tab>[
-    const Tab(text: 'LEFT'),
-    const Tab(text: 'RIGHT'),
-  ];
+class AppTabController extends GetxController with GetSingleTickerProviderStateMixin {
+  AppTabController({required this.myTabsLength});
+   final int myTabsLength;
 
   late TabController controller;
 
   @override
   void onInit() {
     super.onInit();
-    controller = TabController(vsync: this, length: myTabs.length);
+    controller = TabController(vsync: this, length: myTabsLength);
   }
 
   @override

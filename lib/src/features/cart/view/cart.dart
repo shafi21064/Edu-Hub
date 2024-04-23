@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:torganic/src/common/widgets/appbar/sliver_app_bar.dart';
+import 'package:torganic/src/common/widgets/texts/section_title_text.dart';
 import 'package:torganic/src/features/payment_gateway/bkash/payment_page.dart';
 import 'package:torganic/src/features/pdf_generator/view/pdf.dart';
 import '../../../common/layouts/layout_with_drawer/layout_with_drawer.dart';
@@ -67,7 +68,7 @@ class Cart extends StatelessWidget {
                 onPressed: () {
                   Get.to(() => const SliverAppBarTest());
                 },
-                buttonText: 'Show tabs')
+                buttonText: 'Show tabs'),
           ]
         ),
       ),

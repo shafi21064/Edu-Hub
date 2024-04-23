@@ -1,59 +1,84 @@
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
-// import 'package:persistent_bottom_nav_bar_v2/persistent_bottom_nav_bar_v2.dart';
-// import 'package:torganic/src/features/home/views/product_page.dart';
-// import 'package:torganic/src/features/authentication/views/log_in/widgets/login_forms&button.dart';
+// import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+//
+//
 //
 //
 // PersistentTabController _controller = PersistentTabController(initialIndex: 0);
 //
-// class BottomNavigationTwo extends StatelessWidget {
-//   const BottomNavigationTwo({super.key});
+// class CustomNavBarWidget extends StatelessWidget {
+//   const CustomNavBarWidget(
+//       this.items, {
+//         required final Key key,
+//         required this.selectedIndex,
+//         required this.onItemSelected,
+//       }) : super(key: key);
+//
+//   final int selectedIndex;
+//   final List<PersistentBottomNavBarItem> items;
+//   final ValueChanged<int> onItemSelected;
+//
+//   Widget _buildItem(
+//       final PersistentBottomNavBarItem item, final bool isSelected) =>
+//       Container(
+//         alignment: Alignment.center,
+//         height: kBottomNavigationBarHeight,
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           mainAxisSize: MainAxisSize.min,
+//           children: <Widget>[
+//             Flexible(
+//               child: IconTheme(
+//                 data: IconThemeData(
+//                     size: 26,
+//                     color: isSelected
+//                         ? (item.activeColorSecondary ?? item.activeColorPrimary)
+//                         : item.inactiveColorPrimary ?? item.activeColorPrimary),
+//                 child: isSelected ? item.icon : item.inactiveIcon ?? item.icon,
+//               ),
+//             ),
+//             Padding(
+//               padding: const EdgeInsets.only(top: 5),
+//               child: Material(
+//                 type: MaterialType.transparency,
+//                 child: FittedBox(
+//                     child: Text(
+//                       item.title!,
+//                       style: TextStyle(
+//                           color: isSelected
+//                               ? (item.activeColorSecondary ??
+//                               item.activeColorPrimary)
+//                               : item.inactiveColorPrimary,
+//                           fontWeight: FontWeight.w400,
+//                           fontSize: 12),
+//                     )),
+//               ),
+//             )
+//           ],
+//         ),
+//       );
 //
 //   @override
-//   Widget build(BuildContext context) {
-//     return PersistentTabView(
-//         tabs: [
-//           PersistentTabConfig(
-//             screen: Home(),
-//             item: ItemConfig(
-//               icon: Icon(Icons.home),
-//               title: "Home",
+//   Widget build(final BuildContext context) => Container(
+//     color: Colors.white,
+//     child: SizedBox(
+//       width: double.infinity,
+//       height: kBottomNavigationBarHeight,
+//       child: Row(
+//         mainAxisAlignment: MainAxisAlignment.spaceAround,
+//         children: items.map((final item) {
+//           final int index = items.indexOf(item);
+//           return Flexible(
+//             child: GestureDetector(
+//               onTap: () {
+//                 onItemSelected(index);
+//               },
+//               child: _buildItem(item, selectedIndex == index),
 //             ),
-//           ),
-//           PersistentTabConfig(
-//             screen: LogInFormsAndButton(),
-//             item: ItemConfig(
-//               icon: Icon(Icons.message),
-//               title: "Messages",
-//             ),
-//           ),
-//         ],
-//         navBarBuilder:(navBarConfig) => Style1BottomNavBar(
-//     navBarConfig: navBarConfig));
-//   }
+//           );
+//         }).toList(),
+//       ),
+//     ),
+//   );
 // }
-//
-// // List<Widget> _buildScreens() {
-// //   return [
-// //     const Home(),
-// //     const LogIn(),
-// //   ];
-// // }
-// //
-// // List<PersistentBottomNavBarItem> _navBarsItems() {
-// //   return [
-// //     PersistentBottomNavBarItem(
-// //       icon: const Icon(CupertinoIcons.home),
-// //       title: ("Home"),
-// //       activeColorPrimary: CupertinoColors.activeBlue,
-// //       inactiveColorPrimary: CupertinoColors.systemGrey,
-// //     ),
-// //     PersistentBottomNavBarItem(
-// //       icon: const Icon(CupertinoIcons.settings),
-// //       title: ("Settings"),
-// //       activeColorPrimary: CupertinoColors.activeBlue,
-// //       inactiveColorPrimary: CupertinoColors.systemGrey,
-// //     ),
-// //   ];
-// // }
