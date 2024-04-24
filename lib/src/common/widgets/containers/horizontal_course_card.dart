@@ -7,13 +7,15 @@ import 'course_title_container.dart';
 import 'product_image.dart';
 
 class AppHorizontalCourseCard extends StatelessWidget {
-  const AppHorizontalCourseCard({super.key});
+  const AppHorizontalCourseCard({required this.onTap,super.key});
 
+  final VoidCallback? onTap;
   @override
   Widget build(BuildContext context) {
-    return const AppCardContainer(
+    return AppCardContainer(
+      onTap: onTap,
       //backgroundColor: Colors.red,
-      child: Row(
+      child: const Row(
         children: [
           AppProductImageContainer(
              width: 119,

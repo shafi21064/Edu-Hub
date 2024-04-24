@@ -6,17 +6,17 @@ import 'course_title_container.dart';
 import 'product_image.dart';
 
 class AppVerticalCourseCard extends StatelessWidget {
-  const AppVerticalCourseCard({super.key});
+  const AppVerticalCourseCard({super.key, required this.onTap});
 
-
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    return const AppCardContainer(
+    return  AppCardContainer(
       width: AppSizes.productItemHeight,
-      child: Column(
+      onTap: onTap,
+      child: const Column(
         children: [
           AppProductImageContainer(
-            // width: 250,
               imgUrl: AppImages.banner2),
           AppCourseTitleContainer()
         ],

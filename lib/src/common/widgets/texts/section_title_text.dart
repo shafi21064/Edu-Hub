@@ -6,11 +6,12 @@ import 'package:torganic/src/utils/constants/sizes.dart';
 class AppSectionTitleText extends StatelessWidget {
   const AppSectionTitleText(
       {required this.sectionTitle,
+      this.buttonTxt = 'Sell all',
       this.haveTxtButton = true,
       this.onTapSeeAll,
       super.key});
 
-  final String sectionTitle;
+  final String sectionTitle, buttonTxt;
   final bool haveTxtButton;
   final VoidCallback? onTapSeeAll;
 
@@ -29,7 +30,7 @@ class AppSectionTitleText extends StatelessWidget {
               visible: haveTxtButton,
               child: InkWell(
                   onTap: onTapSeeAll,
-                  child: Text('see all',
+                  child: Text(buttonTxt,
                       style: Theme.of(context)
                           .textTheme
                           .titleSmall!

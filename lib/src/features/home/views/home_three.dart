@@ -13,6 +13,7 @@ import 'package:torganic/src/common/widgets/containers/horizontal_scroll_card.da
 import 'package:torganic/src/common/widgets/texts/section_title_text.dart';
 import 'package:torganic/src/features/bottom_navigation/controller/buttom_navigation_controller.dart';
 import 'package:torganic/src/features/classes/view/my_classes.dart';
+import 'package:torganic/src/features/details/view/details.dart';
 import 'package:torganic/src/features/home/controller/home_controller.dart';
 import 'package:torganic/src/features/home/views/widgets/home_recomended_product.dart';
 import 'package:torganic/src/utils/constants/image_strings.dart';
@@ -52,7 +53,9 @@ class HomeScreenThree extends StatelessWidget {
               onTapSeeAll: (){bottomNav.changePage(1);
               },
                 sectionTitle: 'Most Popular Course'),
-            const AppHorizontalScrollCard(),
+             AppHorizontalScrollCard(
+              onTap: ()=> Get.to(()=> const DetailsScreen()),
+            ),
             const Gap(AppSizes.spaceBtwSections),
           ],
         ),

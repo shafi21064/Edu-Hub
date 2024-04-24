@@ -11,16 +11,19 @@ import 'course_title_container.dart';
 import 'product_image.dart';
 
 class AppVerticalScrollCard extends StatelessWidget {
-  const AppVerticalScrollCard({super.key});
+  const AppVerticalScrollCard({required this.onTap, super.key});
 
+  final VoidCallback onTap;
   @override
   Widget build(BuildContext context) {
-    return const SizedBox(
+    return SizedBox(
       //height: 200,
       child: AppListViewLayout(
           isScrollVertically: true,
           itemCount: 5,
-          child: AppHorizontalCourseCard()),
+          child: AppHorizontalCourseCard(
+            onTap: onTap,
+          )),
     );
   }
 }

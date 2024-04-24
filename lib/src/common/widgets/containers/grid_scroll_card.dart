@@ -7,16 +7,18 @@ import 'course_title_container.dart';
 import 'product_image.dart';
 
 class AppGridScrollCard extends StatelessWidget {
-  const AppGridScrollCard({this.itemCount = 10, super.key});
+  const AppGridScrollCard({required this.onTap, this.itemCount = 10, super.key});
 
   final int itemCount;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return  AppGridViewLayout(
       itemCount: itemCount,
-      child: const AppCardContainer(
-        child: Column(
+      child:  AppCardContainer(
+        onTap: onTap,
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AppProductImageContainer(

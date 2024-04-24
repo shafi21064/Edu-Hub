@@ -16,6 +16,7 @@ class AppCardContainer extends StatelessWidget {
     this.borderColor,
     this.borderWidth,
     required this.child,
+    this.onTap,
     super.key});
 
   final EdgeInsetsGeometry? padding;
@@ -26,20 +27,24 @@ class AppCardContainer extends StatelessWidget {
   final double? height, width, borderWidth;
   final bool hasBorder;
   final Widget child;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: padding,
-      height: height,
-      width: width,
-      decoration: BoxDecoration(
-        color: backgroundColor,
-        gradient: gradient,
-        border: hasBorder ? Border.all(color: borderColor!, width: borderWidth!) : null,
-        borderRadius: applyRadius? BorderRadius.circular(borderRadius) : BorderRadius.zero
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        padding: padding,
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          gradient: gradient,
+          border: hasBorder ? Border.all(color: borderColor!, width: borderWidth!) : null,
+          borderRadius: applyRadius? BorderRadius.circular(borderRadius) : BorderRadius.zero
+        ),
+        child: child,
       ),
-      child: child,
     );
   }
 }
