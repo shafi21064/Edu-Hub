@@ -6,14 +6,16 @@ import 'card_container.dart';
 import 'course_title_container.dart';
 import 'product_image.dart';
 
-class AppGridCourseCard extends StatelessWidget {
-  const AppGridCourseCard({super.key});
+class AppGridScrollCard extends StatelessWidget {
+  const AppGridScrollCard({this.itemCount = 10, super.key});
+
+  final int itemCount;
 
   @override
   Widget build(BuildContext context) {
-    return const AppGridViewLayout(
-      itemCount: 10,
-      child: AppCardContainer(
+    return  AppGridViewLayout(
+      itemCount: itemCount,
+      child: const AppCardContainer(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

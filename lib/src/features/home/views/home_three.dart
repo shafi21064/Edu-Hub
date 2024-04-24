@@ -8,8 +8,8 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:torganic/src/common/layouts/gridview_layout/gridview_layout.dart';
 import 'package:torganic/src/common/layouts/layout_with_drawer/layout_with_drawer.dart';
 import 'package:torganic/src/common/layouts/layout_without_appbar/layout_without_appbar.dart';
-import 'package:torganic/src/common/widgets/containers/grid_course_card.dart';
-import 'package:torganic/src/common/widgets/containers/horizontal_course_card.dart';
+import 'package:torganic/src/common/widgets/containers/grid_scroll_card.dart';
+import 'package:torganic/src/common/widgets/containers/horizontal_scroll_card.dart';
 import 'package:torganic/src/common/widgets/texts/section_title_text.dart';
 import 'package:torganic/src/features/bottom_navigation/controller/buttom_navigation_controller.dart';
 import 'package:torganic/src/features/classes/view/my_classes.dart';
@@ -52,7 +52,7 @@ class HomeScreenThree extends StatelessWidget {
               onTapSeeAll: (){bottomNav.changePage(1);
               },
                 sectionTitle: 'Most Popular Course'),
-            const AppHorizontalCourseCard(),
+            const AppHorizontalScrollCard(),
             const Gap(AppSizes.spaceBtwSections),
           ],
         ),

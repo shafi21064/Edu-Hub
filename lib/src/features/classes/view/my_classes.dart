@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:torganic/src/common/layouts/gridview_layout/gridview_layout.dart';
 import 'package:torganic/src/common/widgets/containers/course_title_container.dart';
-import 'package:torganic/src/common/widgets/containers/grid_course_card.dart';
+import 'package:torganic/src/common/widgets/containers/grid_scroll_card.dart';
+import 'package:torganic/src/common/widgets/containers/horizontal_scroll_card.dart';
+import 'package:torganic/src/common/widgets/containers/vertical_scroll_card.dart';
 import 'package:torganic/src/common/widgets/tab_bar/sized_tab_bar.dart';
+import 'package:torganic/src/common/widgets/texts/section_title_text.dart';
 import '../../../common/layouts/layout_with_back_button/layout_with_back_button.dart';
 import '../../../common/layouts/listview_layout/listview_layout.dart';
 import '../../../common/widgets/containers/card_container.dart';
@@ -22,15 +25,15 @@ class MyClasses extends StatelessWidget {
     final isDark = AppHelperFunctions.isDarkMode(context);
     return  AppLayoutWithBackButton(
       centerTitle: true,
-      title: Text('My Classes'),
+      title: const Text('My Classes'),
       body: ListView(
-        children: [
-          AppGridCourseCard(),
+        children: const [
+          AppSectionTitleText(sectionTitle: 'On Progress', haveTxtButton: false,),
+          AppHorizontalScrollCard(),
+          Gap(AppSizes.spaceBtwSections),
+          AppSectionTitleText(sectionTitle: 'Other Classes', haveTxtButton: false,),
+          AppVerticalScrollCard(),
           Gap(AppSizes.spaceBtwItems),
-          // SizedBox(
-          //   height: 500,
-          //   child: TabBarViewInfo(),
-          // )
         ],
       )
     );

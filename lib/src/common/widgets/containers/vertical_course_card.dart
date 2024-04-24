@@ -1,28 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:torganic/src/utils/helpers/helper_functions.dart';
 import '../../../utils/constants/image_strings.dart';
 import '../../../utils/constants/sizes.dart';
 import 'card_container.dart';
 import 'course_title_container.dart';
 import 'product_image.dart';
 
-class AppHorizontalCourseCard extends StatelessWidget {
-  const AppHorizontalCourseCard({super.key});
+class AppVerticalCourseCard extends StatelessWidget {
+  const AppVerticalCourseCard({super.key});
+
 
   @override
   Widget build(BuildContext context) {
     return const AppCardContainer(
-      //backgroundColor: Colors.red,
-      child: Row(
+      width: AppSizes.productItemHeight,
+      child: Column(
         children: [
           AppProductImageContainer(
-             width: 119,
-            height: 119,
-              fit: BoxFit.fill,
+            // width: 250,
               imgUrl: AppImages.banner2),
           AppCourseTitleContainer()
         ],
       ),
+
     );
   }
 }
