@@ -8,8 +8,8 @@ import 'package:torganic/src/common/widgets/tab_bar/custom_tab_bar.dart';
 import 'package:torganic/src/utils/constants/sizes.dart';
 
 class SliverAppBarTest extends StatelessWidget {
-  const SliverAppBarTest({super.key});
-
+  const SliverAppBarTest({required this.onSearchTap, super.key});
+  final VoidCallback onSearchTap;
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -32,9 +32,11 @@ class SliverAppBarTest extends StatelessWidget {
                   padding: AppSpacingStyle.defaultSpacing,
                   child: ListView(
                     physics: const NeverScrollableScrollPhysics(),
-                    children: const [
-                      Gap(AppSizes.spaceBtwSections),
-                      AppSearchBar()
+                    children: [
+                      const Gap(AppSizes.spaceBtwSections),
+                      AppSearchBar(
+                        onTap: onSearchTap,
+                      )
                     ],
                   ),
                 ),

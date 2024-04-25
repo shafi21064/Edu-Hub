@@ -27,7 +27,7 @@ class HomeRecommendedProduct extends StatelessWidget {
           child: AppListViewLayout(
             isScrollVertically: false,
             itemCount: 5,
-            child: AppCardContainer(
+            builderFunction: (context, index)=> AppCardContainer(
               width: AppHelperFunctions.screenWidth() / 2,
               child: const Column(
                 children: [

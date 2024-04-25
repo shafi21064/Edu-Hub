@@ -20,7 +20,7 @@ class AppHorizontalScrollCard extends StatelessWidget {
       child: AppListViewLayout(
           isScrollVertically: false,
           itemCount: 5,
-          child: AppVerticalCourseCard(
+          builderFunction: (context, index) => AppVerticalCourseCard(
             onTap: onTap,
           )),
     );

@@ -10,7 +10,7 @@ class AppCourseTitleContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Flexible(
+    return Flexible(
       child: AppCardContainer(
         height: height,
           width: width,

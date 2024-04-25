@@ -24,16 +24,19 @@ class AppLayoutWithBackButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = AppHelperFunctions.isDarkMode(context);
-    return Scaffold(
-      resizeToAvoidBottomInset: true,
-      appBar: CustomAppBar(
-        title: title,
-        showBackArrow: true,
-        centerTitle: centerTitle,
-        //backgroundColor: backgroundColor ?? (isDark? AppColors.dark : AppColors.light),
-        actions: action,
+    return GestureDetector(
+      onTap: ()=> FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
+        appBar: CustomAppBar(
+          title: title,
+          showBackArrow: true,
+          centerTitle: centerTitle,
+          //backgroundColor: backgroundColor ?? (isDark? AppColors.dark : AppColors.light),
+          actions: action,
+        ),
+        body: Padding(padding: AppSpacingStyle.defaultSpacing, child: body),
       ),
-      body: Padding(padding: AppSpacingStyle.defaultSpacing, child: body),
     );
   }
 }

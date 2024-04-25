@@ -1,32 +1,32 @@
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:torganic/src/utils/constants/colors.dart';
-import 'package:torganic/src/utils/constants/sizes.dart';
-import 'package:torganic/src/utils/helpers/helper_functions.dart';
 
 class AppSearchBar extends StatelessWidget {
-  const AppSearchBar({super.key});
+  const AppSearchBar(
+      {required this.onTap,
+      this.onChanged,
+      this.onSubmit,
+      this.autofocus = true,
+      this.enabled = true,
+      super.key});
+
+  final VoidCallback onTap;
+  final dynamic onChanged, onSubmit;
+  final bool enabled, autofocus;
 
   @override
   Widget build(BuildContext context) {
-    final isDark = AppHelperFunctions.isDarkMode(context);
-    return Container(
-      padding: const EdgeInsets.all(AppSizes.md),
-      width: AppHelperFunctions.screenWidth(),
-      decoration: BoxDecoration(
-        color: isDark? AppColors.black : AppColors.primaryBackground,
-        borderRadius: BorderRadius.circular(AppSizes.cardRadiusLg),
-        border: Border.all(color: AppColors.grey)
-      ),
-      child: Row(
-        children: [
-          const Icon(Icons.search_outlined, color: AppColors.darkGrey,),
-          const Gap(AppSizes.spaceBtwItems),
-          Text(AppLocalizations.of(context)!.search)
-        ],
+    return InkWell(
+      onTap: onTap,
+      child: TextFormField(
+        //onTap: onTap,
+        onChanged: onChanged,
+        onFieldSubmitted: onSubmit,
+        autofocus: autofocus,
+        enabled: enabled,
+        decoration: const InputDecoration(
+            hintText: 'Search here...',
+            prefixIcon: Icon(Icons.search),),
       ),
     );
   }
 }
-

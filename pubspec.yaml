@@ -74,6 +74,7 @@ dependencies:
   flutter_bkash: ^0.2.0
   flutter_stripe: ^10.1.1
   flutter_sslcommerz: ^2.2.2-nullsafety.0
+  flutter_chat_ui: ^1.6.12
 
 
 

@@ -4,6 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:torganic/src/common/layouts/listview_layout/listview_layout.dart';
 import 'package:torganic/src/common/widgets/tab_bar/tabs_card.dart';
+import 'package:torganic/src/features/courses/view/search_screen.dart';
 import '../../../common/layouts/layout_with_back_button/layout_with_back_button.dart';
 import '../../../common/widgets/containers/grid_scroll_card.dart';
 import '../../../common/widgets/containers/vertical_scroll_card.dart';
@@ -11,6 +12,7 @@ import '../../../common/widgets/search_bar/search_bar.dart';
 import '../../../common/widgets/texts/section_title_text.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../details/view/details.dart';
+import 'widgets/course_screen_tab_button.dart';
 
 
 
@@ -24,15 +26,12 @@ class AllCourses extends StatelessWidget {
         centerTitle: true,
         body: ListView(
           children: [
-            const AppSearchBar(),
-            const Gap(AppSizes.spaceBtwSections),
-            SizedBox(
-              height: 40,
-              child: AppListViewLayout(
-                  itemCount: 5,
-              isScrollVertically: false,
-              child: AppTabsCard(tabName: 'Python')),
+            AppSearchBar(
+              enabled: false,
+              onTap: ()=> Get.to(()=> const SearchScreen()),
             ),
+            const Gap(AppSizes.spaceBtwSections),
+            const AppCourseScreenTabButton(),
             const Gap(AppSizes.spaceBtwItems),
             const AppSectionTitleText(sectionTitle: 'Trending Course', haveTxtButton: false,),
              AppGridScrollCard(
@@ -48,3 +47,5 @@ class AllCourses extends StatelessWidget {
         ));
   }
 }
+
+

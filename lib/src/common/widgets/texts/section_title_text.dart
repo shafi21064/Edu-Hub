@@ -6,7 +6,7 @@ import 'package:torganic/src/utils/constants/sizes.dart';
 class AppSectionTitleText extends StatelessWidget {
   const AppSectionTitleText(
       {required this.sectionTitle,
-      this.buttonTxt = 'Sell all',
+      this.buttonTxt = 'See all',
       this.haveTxtButton = true,
       this.onTapSeeAll,
       super.key});
@@ -34,7 +34,7 @@ class AppSectionTitleText extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .titleSmall!
-                          .apply(color: AppColors.primary))),
+                          .apply(color: AppColors.darkGrey))),
             )
           ],
         ),
