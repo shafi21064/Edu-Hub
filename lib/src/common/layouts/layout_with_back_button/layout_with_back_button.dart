@@ -11,14 +11,17 @@ class AppLayoutWithBackButton extends StatelessWidget {
     this.title,
     required this.body,
     this.centerTitle = false,
+    this.defaultPadding = true,
     this.action,
     this.backgroundColor,
+    this.customPadding,
     super.key});
 
   final Widget? title, body;
-  final bool centerTitle;
+  final bool centerTitle, defaultPadding;
   final Color? backgroundColor;
   final List<Widget>? action;
+  final EdgeInsetsGeometry? customPadding;
 
 
   @override
@@ -35,7 +38,7 @@ class AppLayoutWithBackButton extends StatelessWidget {
           //backgroundColor: backgroundColor ?? (isDark? AppColors.dark : AppColors.light),
           actions: action,
         ),
-        body: Padding(padding: AppSpacingStyle.defaultSpacing, child: body),
+        body: Padding(padding: defaultPadding? AppSpacingStyle.defaultSpacing : customPadding!,  child: body)
       ),
     );
   }

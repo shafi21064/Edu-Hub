@@ -1,57 +1,41 @@
-import 'package:appinio_video_player/appinio_video_player.dart';
+// import 'package:appinio_video_player/appinio_video_player.dart';
+import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:torganic/src/common/layouts/layout_with_back_button/layout_with_back_button.dart';
+import 'package:torganic/src/features/video_player/controller/video_player_controller.dart';
 
 
-class VideoApp extends StatefulWidget {
-  const VideoApp({super.key});
-
-  @override
-  State<VideoApp> createState() => _VideoAppState();
-}
-
-class _VideoAppState extends State<VideoApp> {
-  late VideoPlayerController videoPlayerController;
-  late CustomVideoPlayerController _customVideoPlayerController;
-
-  String videoUrl =
-      "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
-  @override
-
-  void initState() {
-    _initVideo();
-    super.initState();
-  }
-
-  void _initVideo (){
-    videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(videoUrl))
-      ..initialize().then((value) => setState(() {}));
-    _customVideoPlayerController = CustomVideoPlayerController(
-        context: context,
-        videoPlayerController: videoPlayerController,
-        customVideoPlayerSettings: const CustomVideoPlayerSettings(
-          placeholderWidget: Center(child: CircularProgressIndicator()),
-          alwaysShowThumbnailOnVideoPaused: true,
-          showPlayButton: true,
-        )
-    );
-  }
-
-  @override
-  void dispose() {
-    _customVideoPlayerController.dispose();
-    super.dispose();
-  }
+class AppVideoPlayerScreen extends StatelessWidget {
+  const AppVideoPlayerScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(VideoLectureController());
     return AppLayoutWithBackButton(
         title: const Text('Video Player'),
+        defaultPadding: false,
+        customPadding: EdgeInsets.zero,
         body: Center(
-          child: CustomVideoPlayer(
-            customVideoPlayerController: _customVideoPlayerController,
+          child: Obx(
+                () => controller.videoPlayerController.value.isInitialized
+                ? AspectRatio(
+              aspectRatio:
+              controller.videoPlayerController.value.aspectRatio,
+              child: Chewie(
+                controller: controller.chewieController,
+              ),
+            )
+                : AspectRatio(
+              aspectRatio: 16 / 9,
+              child: Center(
+                child: controller.thumbnail.value,
+              ),
+            ),
           ),
-        ));
+        )
+
+    );
   }
 }
 

@@ -44,7 +44,7 @@ class Cart extends StatelessWidget {
             const Gap(AppSizes.spaceBtwItems),
             AppButtons.largeFlatFilledButton(
                 onPressed: () {
-                  Get.to(() => const VideoApp());
+                  Get.to(() => const AppVideoPlayerScreen());
                 },
                 buttonText: 'Show video'),
             const Gap(AppSizes.spaceBtwItems),
