@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:get/get.dart';
 import 'package:torganic/src/common/styles/spacing_style.dart';
+import 'package:torganic/src/features/authentication/views/log_in/view/login.dart';
+import 'package:torganic/src/features/personalization/view/personal_info.dart';
 import 'package:torganic/src/utils/constants/colors.dart';
 import 'package:torganic/src/utils/constants/image_strings.dart';
 import 'package:torganic/src/utils/constants/sizes.dart';
@@ -17,31 +20,48 @@ class DetailsPart extends StatelessWidget {
     final isDark = AppHelperFunctions.isDarkMode(context);
     return Container(
       padding: AppSpacingStyle.allSIdeSpacing,
-        //color: isDark ? AppColors.darkerGrey : AppColors.white,
+        //color: isDark ? AppColors.dark : AppColors.white,
       child: Column(
         children: [
           DetailsCard(
-              onTap: (){},
+              onTap: (){
+                Get.to(()=> const AppPersonalInfoScreen());
+              },
               imagePath: AppImages.homeIcon,
-              cardText: AppLocalizations.of(context)!.orderDetails,
+              cardText: 'Personal Info',
           ),
-          const Gap(AppSizes.spaceBtwItems),
+          //const Gap(AppSizes.spaceBtwItems),
           DetailsCard(
             onTap: (){},
             imagePath: AppImages.profileIcon,
-            cardText: AppLocalizations.of(context)!.editProfile,
+            cardText: 'Your Cards',
           ),
-          const Gap(AppSizes.spaceBtwItems),
+          //const Gap(AppSizes.spaceBtwItems),
           DetailsCard(
             onTap: (){},
             imagePath: AppImages.addressIcon,
-            cardText: AppLocalizations.of(context)!.address,
+            cardText: 'Billing & Subscription',
           ),
-          const Gap(AppSizes.spaceBtwItems),
+          //const Gap(AppSizes.spaceBtwItems),
           DetailsCard(
             onTap: (){},
             imagePath: AppImages.translateIcon,
-            cardText: AppLocalizations.of(context)!.changeLanguage,
+            cardText: 'Account & Security',
+          ),
+          //const Gap(AppSizes.spaceBtwItems),
+          DetailsCard(
+            onTap: (){},
+            imagePath: AppImages.translateIcon,
+            cardText: 'Help & Support ',
+          ),
+          //const Gap(AppSizes.spaceBtwItems),
+          DetailsCard(
+            onTap: (){
+              Get.offAll(()=> const LogIn());
+            },
+            imagePath: AppImages.exitIcon,
+            cardText: AppLocalizations.of(context)!.logout,
+            showBackArrow: false,
           )
         ],
       ),

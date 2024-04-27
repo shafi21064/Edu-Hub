@@ -41,9 +41,8 @@ class VideoLectureController extends GetxController {
       // final generatedThumbnail = await generateVideoThumbnail(cards.thumbnail);
        //final generatedThumbnail = await generateVideoThumbnail('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4');
       //thumbnail.value = cards.thumbnail;
-      thumbnail.value = ShimmerHelper().buildBasicShimmer(isDark: false);
+      thumbnail.value = CircularProgressIndicator();
     } catch (e) {
-      FullScreenLoader.stopLoading();
       thumbnail.value = const Text("Error Loading Thumbnail", style: TextStyle(color: Colors.black));
     }
   }

@@ -63,7 +63,7 @@ List<Widget> _buildScreens() {
     const MyClasses(),
     const AllCourses(),
     const ChatScreen(),
-    const Profile()
+    const ProfileScreen()
   ];
 }
 

@@ -7,15 +7,16 @@ class AuthInputField extends StatelessWidget {
     required this.isDark,
     required this.hingText,
     required this.controller,
-    required this.obscured,
-    required this.validator,
+    this.obscured = false,
+     this.validator,
     this.suffixIcon,
+    this.prefixIcon,
   });
 
   final bool isDark, obscured;
   final String hingText;
   final TextEditingController controller;
-  final Widget? suffixIcon;
+  final Widget? suffixIcon, prefixIcon;
   final dynamic validator;
 
   @override
@@ -24,19 +25,20 @@ class AuthInputField extends StatelessWidget {
       validator: validator,
       controller: controller,
       obscureText: obscured,
-      decoration: InputDecoration(
+       decoration: InputDecoration(
         hintText: hingText,
-        suffixIcon: suffixIcon,
-        focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: isDark ? AppColors.white : AppColors.darkGrey)),
-        enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-                color: isDark ? AppColors.lightGrey : AppColors.grey)),
-        errorBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.error)),
-        focusedErrorBorder: const OutlineInputBorder(
-            borderSide: BorderSide(color: AppColors.error)),
+         suffixIcon: suffixIcon,
+      prefixIcon: prefixIcon
+      //   focusedBorder: OutlineInputBorder(
+      //       borderSide: BorderSide(
+      //           color: isDark ? AppColors.white : AppColors.darkGrey)),
+      //   enabledBorder: OutlineInputBorder(
+      //       borderSide: BorderSide(
+      //           color: isDark ? AppColors.lightGrey : AppColors.grey)),
+      //   errorBorder: const OutlineInputBorder(
+      //       borderSide: BorderSide(color: AppColors.error)),
+      //   focusedErrorBorder: const OutlineInputBorder(
+      //       borderSide: BorderSide(color: AppColors.error)),
       ),
     );
   }
