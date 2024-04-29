@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:torganic/src/features/bottom_navigation/controller/buttom_navigation_controller.dart';
 import 'package:torganic/src/features/cart/view/cart.dart';
-import 'package:torganic/src/features/chat/view/chat.dart';
+import 'package:torganic/src/features/chat/view/chat_screen.dart';
 import 'package:torganic/src/features/classes/view/my_classes.dart';
 import 'package:torganic/src/features/graph_chart/view/graph_screen.dart';
 import 'package:torganic/src/features/home/views/home_three.dart';

@@ -35,17 +35,20 @@ class _ChatScreenState extends State<ChatScreen> {
           centerTitle: true,
         ),
         body: Chat(
+
           messages: _messages,
           onSendPressed: _handleSendPressed,
           user: _user,
           theme: DefaultChatTheme(
+            attachmentButtonIcon: const Icon(Icons.link),
+            attachmentButtonMargin: const EdgeInsets.all(10),
+
             backgroundColor: isDark ? AppColors.dark : AppColors.white,
             inputBackgroundColor:
                 isDark ? AppColors.secondary : AppColors.secondary,
             inputPadding: const EdgeInsets.all(AppSizes.xl),
             inputTextDecoration: InputDecoration(
               contentPadding: const EdgeInsets.all(AppSizes.md),
-              //border: OutlineInputBorder(borderSide: BorderSide(color: AppColors.primary )),
               focusedBorder: OutlineInputBorder(
                   borderSide: const BorderSide(
                       color: AppColors.lightContainer, width: 2),
