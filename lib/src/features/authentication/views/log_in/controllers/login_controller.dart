@@ -87,8 +87,10 @@ class LogInPageController extends GetxController {
         Get.offAll(()=> const BottomNavigation());
       }
       GoogleSignIn().disconnect();
+      GoogleSignIn().disconnect();
 
     } on Exception catch (e) {
+      FullScreenLoader.stopLoading();
       AppHelperFunctions.showSimpleSnackBar(e.toString());
       print("error is ....... $e");
       // TODO

@@ -25,7 +25,7 @@ class DetailsScreen extends StatelessWidget {
           Positioned(
             bottom: 0,
               child: AppButtons.largeFlatFilledButton(onPressed: (){
-                Get.to(()=> const AppQuizScreen());
+                Get.to(()=> const AppVideoPlayerScreen());
               }, buttonText: 'Start Learning')),
         ],
       ),

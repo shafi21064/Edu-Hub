@@ -3,16 +3,11 @@ import 'package:webview_flutter/webview_flutter.dart';
 
 import '../../common/layouts/layout_with_back_button/layout_with_back_button.dart';
 
-class WebViewScreen extends StatefulWidget {
-  String url;
+class WebViewScreen extends StatelessWidget {
+  final String url;
 
-  WebViewScreen({super.key, required this.url});
+ const WebViewScreen({super.key, required this.url});
 
-  @override
-  State<WebViewScreen> createState() => _WebViewScreenState();
-}
-
-class _WebViewScreenState extends State<WebViewScreen> {
   @override
   Widget build(BuildContext context) {
     WebViewController controllers = WebViewController()
@@ -27,16 +22,18 @@ class _WebViewScreenState extends State<WebViewScreen> {
           onPageFinished: (String url) {},
           onWebResourceError: (WebResourceError error) {},
           onNavigationRequest: (NavigationRequest request) {
-            if (request.url.startsWith('https://www.youtube.com/')) {
+            if (request.url.startsWith('https://www.youtube.com/watch?v=wUf9s5B7MFw&ab_channel=FairytaleVibes')) {
               return NavigationDecision.prevent;
             }
             return NavigationDecision.navigate;
           },
         ),
       )
-      ..loadRequest(Uri.parse(widget.url));
+      ..loadRequest(Uri.parse(url));
 
     return AppLayoutWithBackButton(
+      defaultPadding: false,
+        customPadding: EdgeInsets.zero,
         body: SafeArea(
             child: WebViewWidget(
       controller: controllers,

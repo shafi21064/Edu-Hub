@@ -62,7 +62,7 @@ List<Widget> _buildScreens() {
     const HomeScreenThree(),
     const MyClasses(),
     const AllCourses(),
-    const ChatScreen(),
+    const ChatPage(),
     const ProfileScreen()
   ];
 }

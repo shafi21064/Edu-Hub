@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:torganic/src/common/styles/spacing_style.dart';
 import 'package:torganic/src/features/authentication/views/log_in/view/login.dart';
 import 'package:torganic/src/features/personalization/view/personal_info.dart';
+import 'package:torganic/src/features/web_view/web_view.dart';
 import 'package:torganic/src/utils/constants/colors.dart';
 import 'package:torganic/src/utils/constants/image_strings.dart';
 import 'package:torganic/src/utils/constants/sizes.dart';
@@ -32,7 +33,9 @@ class DetailsPart extends StatelessWidget {
           ),
           //const Gap(AppSizes.spaceBtwItems),
           DetailsCard(
-            onTap: (){},
+            onTap: (){
+              Get.to(()=> const WebViewScreen(url: 'https://www.youtube.com/'));
+            },
             imagePath: AppImages.profileIcon,
             cardText: 'Your Cards',
           ),
